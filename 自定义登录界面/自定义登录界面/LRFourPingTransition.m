@@ -42,13 +42,13 @@
 }
 
 - (void)presentAnimation:(id<UIViewControllerContextTransitioning>)transitionContext{
-    UINavigationController *fromVC = (UINavigationController *)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    UIViewController *temp = fromVC.viewControllers.lastObject;
+    UINavigationController *fromNav = (UINavigationController *)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+    UIViewController *fromVc = fromNav.viewControllers.lastObject;
     
     UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    
+    NSLog(@"fromNav = %@ fromVc = %@ toVC = %@",fromNav,fromVc,toVC);
     //拿到button
-    UIButton *button = temp.view.subviews.lastObject;
+    UIButton *button = fromVc.view.subviews.lastObject;
     
     UIView *containerView = [transitionContext containerView];
     
@@ -80,6 +80,7 @@
 }
 
 - (void)dismissAnimation:(id<UIViewControllerContextTransitioning>)transitionContext{
+    
     UIViewController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     UINavigationController *toVC = (UINavigationController *)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     UIViewController *temp = toVC.viewControllers.lastObject;
@@ -103,30 +104,33 @@
     maskLayerAnimation.timingFunction = [CAMediaTimingFunction  functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     [maskLayerAnimation setValue:transitionContext forKey:@"transitionContext"];
     [maskLayer addAnimation:maskLayerAnimation forKey:@"path"];
-//    UIViewController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-//    UINavigationController *toVC = (UINavigationController *)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-//    UIViewController *temp = toVC.viewControllers.lastObject;
-//    
-//    UIView *containerView = [transitionContext containerView];
-//    UIButton *button = temp.view.subviews.lastObject;
-//    //画两个圆路径
-//    CGFloat radius = sqrtf(containerView.frame.size.height * containerView.frame.size.height + containerView.frame.size.width * containerView.frame.size.width) / 2;
-//    UIBezierPath *startCycle = [UIBezierPath bezierPathWithArcCenter:containerView.center radius:radius startAngle:0 endAngle:M_PI * 2 clockwise:YES];
-//    UIBezierPath *endCycle =  [UIBezierPath bezierPathWithOvalInRect:button.frame];
-//    //创建CAShapeLayer进行遮盖
-//    CAShapeLayer *maskLayer = [CAShapeLayer layer];
-//    maskLayer.path = endCycle.CGPath;
-//    fromVC.view.layer.mask = maskLayer;
-//    //创建路径动画
-//    CABasicAnimation *maskLayerAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
-//    maskLayerAnimation.delegate = self;
-//    maskLayerAnimation.fromValue = (__bridge id)(startCycle.CGPath);
-//    maskLayerAnimation.toValue = (__bridge id)((endCycle.CGPath));
-//    maskLayerAnimation.duration = [self transitionDuration:transitionContext];
-//    maskLayerAnimation.delegate = self;
-//    maskLayerAnimation.timingFunction = [CAMediaTimingFunction  functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-//    [maskLayerAnimation setValue:transitionContext forKey:@"transitionContext"];
-//    [maskLayer addAnimation:maskLayerAnimation forKey:@"path"];
+    
+    /*
+    UIViewController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+    UINavigationController *toVC = (UINavigationController *)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    UIViewController *temp = toVC.viewControllers.lastObject;
+    
+    UIView *containerView = [transitionContext containerView];
+    UIButton *button = temp.view.subviews.lastObject;
+    //画两个圆路径
+    CGFloat radius = sqrtf(containerView.frame.size.height * containerView.frame.size.height + containerView.frame.size.width * containerView.frame.size.width) / 2;
+    UIBezierPath *startCycle = [UIBezierPath bezierPathWithArcCenter:containerView.center radius:radius startAngle:0 endAngle:M_PI * 2 clockwise:YES];
+    UIBezierPath *endCycle =  [UIBezierPath bezierPathWithOvalInRect:button.frame];
+    //创建CAShapeLayer进行遮盖
+    CAShapeLayer *maskLayer = [CAShapeLayer layer];
+    maskLayer.path = endCycle.CGPath;
+    fromVC.view.layer.mask = maskLayer;
+    //创建路径动画
+    CABasicAnimation *maskLayerAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
+    maskLayerAnimation.delegate = self;
+    maskLayerAnimation.fromValue = (__bridge id)(startCycle.CGPath);
+    maskLayerAnimation.toValue = (__bridge id)((endCycle.CGPath));
+    maskLayerAnimation.duration = [self transitionDuration:transitionContext];
+    maskLayerAnimation.delegate = self;
+    maskLayerAnimation.timingFunction = [CAMediaTimingFunction  functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    [maskLayerAnimation setValue:transitionContext forKey:@"transitionContext"];
+    [maskLayer addAnimation:maskLayerAnimation forKey:@"path"];
+     */
 }
 
 -(void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag

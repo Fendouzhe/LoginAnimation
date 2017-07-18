@@ -14,7 +14,7 @@ typedef NS_ENUM(NSUInteger, XWPresentOneTransitionType) {
     XWPresentOneTransitionTypeDismiss//管理dismiss动画
 };
 
-@interface LRFourPingTransition : NSObject<UIViewControllerAnimatedTransitioning>
+@interface LRFourPingTransition : NSObject<UIViewControllerAnimatedTransitioning,CAAnimationDelegate>
 
 @property (nonatomic,assign) XWPresentOneTransitionType type;
 

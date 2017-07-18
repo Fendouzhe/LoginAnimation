@@ -74,14 +74,9 @@
     LRButton *login = [[LRButton alloc]initWithFrame:CGRectMake(0, 0, 200, 44)];
     login.center = CGPointMake(self.view.center.x, password.center.y+100);
     [self.view addSubview:login];
-    
-    __block LRButton *button = login;
-    
+ 
     login.translateBlock = ^{
         NSLog(@"跳转了哦");
-        button.bounds = CGRectMake(0, 0, 44, 44);
-        button.layer.cornerRadius = 22;
-        
         NextViewController *nextVC = [[NextViewController alloc]init];
         [self presentViewController:nextVC animated:YES completion:nil];
     };
@@ -94,8 +89,12 @@
     gradientLayer.colors = @[(__bridge id)[UIColor purpleColor].CGColor,(__bridge id)[UIColor redColor].CGColor];
     gradientLayer.startPoint = CGPointMake(0.5, 0);
     gradientLayer.endPoint = CGPointMake(0.5, 1);
-    gradientLayer.locations = @[@0.65,@1];
+    gradientLayer.locations = @[@0.68,@1];
     return gradientLayer;
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
 }
 
 @end

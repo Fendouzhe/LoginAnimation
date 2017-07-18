@@ -93,7 +93,7 @@
     _clickCicrleLayer.lineWidth = 10;
     
     CAAnimationGroup *animationGroup = [CAAnimationGroup animation];
-    
+    //绘制大圆半径 self.bounds.size.height - 10*2
     CABasicAnimation *basicAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
     basicAnimation.duration = 0.15;
     basicAnimation.toValue = (__bridge id _Nullable)([self drawclickCircleBezierPath:(self.bounds.size.height - 10*2)].CGPath);
@@ -122,6 +122,7 @@
     _maskLayer.opacity = 0.15;
     CABasicAnimation *basicAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
     basicAnimation.duration = 0.25;
+    //绘制按钮形状
     basicAnimation.toValue = (__bridge id _Nullable)([self drawBezierPath:self.frame.size.height/2].CGPath);
     basicAnimation.removedOnCompletion = NO;
     basicAnimation.fillMode = kCAFillModeForwards;
@@ -137,6 +138,7 @@
     
     CABasicAnimation *basicAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
     basicAnimation.duration = 0.15;
+    
     basicAnimation.toValue = (__bridge id _Nullable)([self drawBezierPath:self.frame.size.width/2].CGPath);
     basicAnimation.removedOnCompletion = NO;
     basicAnimation.fillMode = kCAFillModeForwards;
@@ -160,11 +162,14 @@
 
 
 -(void)loadingAnimation{
+    
+    //旋转圆弧
     _loadingLayer = [CAShapeLayer layer];
     _loadingLayer.position = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
     _loadingLayer.fillColor = [UIColor clearColor].CGColor;
     _loadingLayer.strokeColor = [UIColor whiteColor].CGColor;
     _loadingLayer.lineWidth = 2;
+    //绘制圆弧
     _loadingLayer.path = [self drawLoadingBezierPath].CGPath;
     [self.layer addSublayer:_loadingLayer];
 
@@ -204,7 +209,7 @@
     CGFloat radius = self.bounds.size.height/2 - 3;
     CGFloat right = self.bounds.size.width-x;
     CGFloat left = x;
-
+    NSLog(@"left = %lf right = %lf radius = %lf",left,right,radius);
     UIBezierPath *bezierPath = [UIBezierPath bezierPath];
     bezierPath.lineJoinStyle = kCGLineJoinRound;
     bezierPath.lineCapStyle = kCGLineCapRound;
