@@ -6,16 +6,16 @@
 //  Copyright © 2016年 lurong. All rights reserved.
 //
 
-#import "LoginViewController.h"
+#import "LRLoginViewController.h"
 #import "LRTextField.h"
 #import "LRButton.h"
 #import "NextViewController.h"
 
-@interface LoginViewController ()
+@interface LRLoginViewController ()
 
 @end
 
-@implementation LoginViewController
+@implementation LRLoginViewController
 
 -(instancetype)init{
     if(self = [super init]){
@@ -42,10 +42,10 @@
 }
 -(void)setUp{
     
-    UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 200, 50)];
+    UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 300, 50)];
     titleLabel.center = CGPointMake(self.view.center.x, 150);
     titleLabel.textColor = [UIColor whiteColor];
-    titleLabel.text = @"CLOVER";
+    titleLabel.text = @"LRAnimations";//@"CLOVER";
     titleLabel.font = [UIFont systemFontOfSize:40.f];
     titleLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:titleLabel];
@@ -86,7 +86,7 @@
 -(CAGradientLayer *)backgroundLayer{
     CAGradientLayer *gradientLayer = [CAGradientLayer layer];
     gradientLayer.frame = self.view.bounds;
-    gradientLayer.colors = @[(__bridge id)[UIColor purpleColor].CGColor,(__bridge id)[UIColor redColor].CGColor];
+    gradientLayer.colors = @[(__bridge id)[UIColor blueColor].CGColor,(__bridge id)[UIColor cyanColor].CGColor];
     gradientLayer.startPoint = CGPointMake(0.5, 0);
     gradientLayer.endPoint = CGPointMake(0.5, 1);
     gradientLayer.locations = @[@0.68,@1];

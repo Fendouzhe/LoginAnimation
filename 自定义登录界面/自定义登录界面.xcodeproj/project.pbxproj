@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		18EED2A11D5AF5D200F0E1AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EED2A01D5AF5D200F0E1AE /* main.m */; };
 		18EED2A41D5AF5D200F0E1AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EED2A31D5AF5D200F0E1AE /* AppDelegate.m */; };
-		18EED2A71D5AF5D200F0E1AE /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EED2A61D5AF5D200F0E1AE /* LoginViewController.m */; };
+		18EED2A71D5AF5D200F0E1AE /* LRLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EED2A61D5AF5D200F0E1AE /* LRLoginViewController.m */; };
 		18EED2AC1D5AF5D200F0E1AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18EED2AB1D5AF5D200F0E1AE /* Assets.xcassets */; };
 		18EED2AF1D5AF5D200F0E1AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18EED2AD1D5AF5D200F0E1AE /* LaunchScreen.storyboard */; };
 		18EED2B81D5AF91000F0E1AE /* LRTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EED2B71D5AF91000F0E1AE /* LRTextField.m */; };
@@ -24,8 +24,8 @@
 		18EED2A01D5AF5D200F0E1AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		18EED2A21D5AF5D200F0E1AE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		18EED2A31D5AF5D200F0E1AE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		18EED2A51D5AF5D200F0E1AE /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		18EED2A61D5AF5D200F0E1AE /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		18EED2A51D5AF5D200F0E1AE /* LRLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LRLoginViewController.h; sourceTree = "<group>"; };
+		18EED2A61D5AF5D200F0E1AE /* LRLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LRLoginViewController.m; sourceTree = "<group>"; };
 		18EED2AB1D5AF5D200F0E1AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18EED2AE1D5AF5D200F0E1AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18EED2B01D5AF5D200F0E1AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -78,8 +78,8 @@
 				18EED2B71D5AF91000F0E1AE /* LRTextField.m */,
 				18EED2B91D5B1FE200F0E1AE /* LRButton.h */,
 				18EED2BA1D5B1FE200F0E1AE /* LRButton.m */,
-				18EED2A51D5AF5D200F0E1AE /* LoginViewController.h */,
-				18EED2A61D5AF5D200F0E1AE /* LoginViewController.m */,
+				18EED2A51D5AF5D200F0E1AE /* LRLoginViewController.h */,
+				18EED2A61D5AF5D200F0E1AE /* LRLoginViewController.m */,
 				18EED2BC1D5B890700F0E1AE /* NextViewController.h */,
 				18EED2BD1D5B890700F0E1AE /* NextViewController.m */,
 				18EED29F1D5AF5D200F0E1AE /* Supporting Files */,
@@ -170,7 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18EED2A71D5AF5D200F0E1AE /* LoginViewController.m in Sources */,
+				18EED2A71D5AF5D200F0E1AE /* LRLoginViewController.m in Sources */,
 				18EED2BE1D5B890700F0E1AE /* NextViewController.m in Sources */,
 				18EED2A41D5AF5D200F0E1AE /* AppDelegate.m in Sources */,
 				18EED2C11D5B8A0A00F0E1AE /* LRFourPingTransition.m in Sources */,

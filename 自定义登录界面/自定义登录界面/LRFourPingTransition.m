@@ -1,5 +1,5 @@
 //
-//  FourPingTransition.m
+//  LRFourPingTransition.m
 //  控制器专场动画集合
 //
 //  Created by apple on 16/6/12.

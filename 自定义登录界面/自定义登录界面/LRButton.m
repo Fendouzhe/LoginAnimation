@@ -62,7 +62,7 @@
 }
 
 
-
+///按钮点击
 -(void)clickBtn{
     [self clickAnimation];
 }
@@ -84,10 +84,13 @@
     
     _clickCicrleLayer = clickCicrleLayer;
     
+    //NSLog(@"MediaTime0 = %lf",CACurrentMediaTime());
+    //上面的动画执行完才会执行这句
     [self performSelector:@selector(clickNextAnimation) withObject:self afterDelay:basicAnimation.duration];
 }
 
 -(void)clickNextAnimation{
+    //NSLog(@"MediaTime1 = %lf",CACurrentMediaTime());
     _clickCicrleLayer.fillColor = [UIColor clearColor].CGColor;
     _clickCicrleLayer.strokeColor = [UIColor whiteColor].CGColor;
     _clickCicrleLayer.lineWidth = 10;
@@ -138,7 +141,7 @@
     
     CABasicAnimation *basicAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
     basicAnimation.duration = 0.15;
-    
+    //变成一个圆
     basicAnimation.toValue = (__bridge id _Nullable)([self drawBezierPath:self.frame.size.width/2].CGPath);
     basicAnimation.removedOnCompletion = NO;
     basicAnimation.fillMode = kCAFillModeForwards;
@@ -207,15 +210,15 @@
 
 -(UIBezierPath *)drawBezierPath:(CGFloat)x{
     CGFloat radius = self.bounds.size.height/2 - 3;
-    CGFloat right = self.bounds.size.width-x;
-    CGFloat left = x;
-    NSLog(@"left = %lf right = %lf radius = %lf",left,right,radius);
+    CGFloat rightCenterX = self.bounds.size.width-x;
+    CGFloat leftCenterX = x;
+    NSLog(@"leftCenterX = %lf rightCenterX = %lf radius = %lf",leftCenterX,rightCenterX,radius);
     UIBezierPath *bezierPath = [UIBezierPath bezierPath];
     bezierPath.lineJoinStyle = kCGLineJoinRound;
     bezierPath.lineCapStyle = kCGLineCapRound;
     
-    [bezierPath addArcWithCenter:CGPointMake(right, self.bounds.size.height/2) radius:radius startAngle:-M_PI/2 endAngle:M_PI/2 clockwise:YES];
-    [bezierPath addArcWithCenter:CGPointMake(left, self.bounds.size.height/2) radius:radius startAngle:M_PI/2 endAngle:-M_PI/2 clockwise:YES];
+    [bezierPath addArcWithCenter:CGPointMake(rightCenterX, self.bounds.size.height/2) radius:radius startAngle:-M_PI/2 endAngle:M_PI/2 clockwise:YES];
+    [bezierPath addArcWithCenter:CGPointMake(leftCenterX, self.bounds.size.height/2) radius:radius startAngle:M_PI/2 endAngle:-M_PI/2 clockwise:YES];
     [bezierPath closePath];
     
     return bezierPath;
