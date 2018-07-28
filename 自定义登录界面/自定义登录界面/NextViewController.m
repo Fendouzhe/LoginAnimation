@@ -39,11 +39,11 @@
 }
 
 -(id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source{
-    return [LRFourPingTransition transitionWithTransitionType:XWPresentOneTransitionTypePresent];
+    return [LRFourPingTransition transitionWithTransitionType:LRPresentOneTransitionTypePresent];
 }
 
 -(id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed{
-    return [LRFourPingTransition transitionWithTransitionType:XWPresentOneTransitionTypeDismiss];
+    return [LRFourPingTransition transitionWithTransitionType:LRPresentOneTransitionTypeDismiss];
 }
 
 -(void)pop:(UITapGestureRecognizer *)sender

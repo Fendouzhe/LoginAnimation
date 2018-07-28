@@ -11,11 +11,11 @@
 @implementation LRFourPingTransition
 
 
-+ (instancetype)transitionWithTransitionType:(XWPresentOneTransitionType)type
++ (instancetype)transitionWithTransitionType:(LRPresentOneTransitionType)type
 {
     return [[self alloc]initWithTransitionType:type];
 }
-- (instancetype)initWithTransitionType:(XWPresentOneTransitionType)type
+- (instancetype)initWithTransitionType:(LRPresentOneTransitionType)type
 {
     if(self = [super init]){
         _type = type;
@@ -30,10 +30,10 @@
 -(void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
 {
     switch (_type) {
-        case XWPresentOneTransitionTypePresent:
+        case LRPresentOneTransitionTypePresent:
             [self presentAnimation:transitionContext];
             break;
-        case XWPresentOneTransitionTypeDismiss:
+        case LRPresentOneTransitionTypeDismiss:
             [self dismissAnimation:transitionContext];
             break;
         default:
@@ -110,14 +110,14 @@
 -(void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
 {
     switch (_type) {
-        case XWPresentOneTransitionTypePresent:{
+        case LRPresentOneTransitionTypePresent:{
           id<UIViewControllerContextTransitioning> transitionContext = [anim valueForKey:@"transitionContext"];
             [transitionContext completeTransition:YES];
             [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey].view.layer.mask = nil;
         }
             break;
             
-        case XWPresentOneTransitionTypeDismiss:{
+        case LRPresentOneTransitionTypeDismiss:{
             id<UIViewControllerContextTransitioning> transitionContext = [anim valueForKey:@"transitionContext"];
             [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
             if ([transitionContext transitionWasCancelled]) {

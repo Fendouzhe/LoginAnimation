@@ -9,16 +9,16 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSUInteger, XWPresentOneTransitionType) {
-    XWPresentOneTransitionTypePresent = 0,//管理present动画
-    XWPresentOneTransitionTypeDismiss//管理dismiss动画
+typedef NS_ENUM(NSUInteger, LRPresentOneTransitionType) {
+    LRPresentOneTransitionTypePresent = 0,//管理present动画
+    LRPresentOneTransitionTypeDismiss//管理dismiss动画
 };
 
 @interface LRFourPingTransition : NSObject<UIViewControllerAnimatedTransitioning,CAAnimationDelegate>
 
-@property (nonatomic,assign) XWPresentOneTransitionType type;
+@property (nonatomic,assign) LRPresentOneTransitionType type;
 
-+ (instancetype)transitionWithTransitionType:(XWPresentOneTransitionType)type;
-- (instancetype)initWithTransitionType:(XWPresentOneTransitionType)type;
++ (instancetype)transitionWithTransitionType:(LRPresentOneTransitionType)type;
+- (instancetype)initWithTransitionType:(LRPresentOneTransitionType)type;
 
 @end
