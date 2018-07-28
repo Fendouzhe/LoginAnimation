@@ -13,7 +13,7 @@
 
 + (instancetype)transitionWithTransitionType:(LRPresentOneTransitionType)type
 {
-    return [[self alloc]initWithTransitionType:type];
+    return [[self alloc] initWithTransitionType:type];
 }
 - (instancetype)initWithTransitionType:(LRPresentOneTransitionType)type
 {
@@ -42,6 +42,7 @@
 }
 
 - (void)presentAnimation:(id<UIViewControllerContextTransitioning>)transitionContext{
+    ///包装了导航控制器
     UINavigationController *fromNav = (UINavigationController *)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIViewController *fromVc = fromNav.viewControllers.lastObject;
     
